@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
+
+    return (array) app('merlion')->getItemFullInfo('B1', null, null, 1, 10);
+
     return view('welcome');
 });
