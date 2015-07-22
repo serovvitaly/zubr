@@ -9,7 +9,7 @@
 namespace App\Services\Merlion;
 
 
-class MerlionServiceProvider
+class Merlion
 {
 
     const WSDL_URI = 'https://apitest.merlion.com/dl/mlservice3?wsdl';

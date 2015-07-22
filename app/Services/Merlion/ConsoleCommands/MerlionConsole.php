@@ -11,7 +11,7 @@ class MerlionConsole extends Command
      *
      * @var string
      */
-    protected $signature = 'merlion';
+    protected $signature = 'merlion:{command}';
 
     /**
      * The console command description.
@@ -34,8 +34,10 @@ class MerlionConsole extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle($command = 'list', $param1 = 'param1')
     {
+        $this->info($command . ':' . $param1); return;
+
         $this->info('Merlion init...');
 
         $products = \Merlion::getItemsAvail('B11000');

@@ -24,7 +24,7 @@ class MerlionServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('merlion', function ($app) {
-            return new \App\Services\Merlion\MerlionServiceProvider($app);
+            return new \App\Services\Merlion\Merlion($app);
         });
     }
 }

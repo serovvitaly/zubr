@@ -14,7 +14,9 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\Inspire::class,
-        \App\Services\Merlion\MerlionConsole::class
+
+        //\App\Services\Merlion\MerlionConsole::class,
+        \App\Services\Merlion\ConsoleCommands\FillCatalog::class,
     ];
 
     /**
