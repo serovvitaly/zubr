@@ -38,29 +38,38 @@ class FillCatalog extends Command
     {
         $cat_id = $this->argument('cat_id');
 
+        $time_start = time();
+
         $this->info('Запрос getCatalog(' . $cat_id . ') к серверу Merlion...');
 
         $catalog = \Merlion::getCatalog($cat_id);
 
         $catalog_items = $catalog->getCatalogResult->item;
 
+        $this->info('- получено записей ' . count($catalog_items) . ', прошло секунд ' . ( time() - $time_start ));
+
         if (!is_array($catalog_items)) {
             $this->error('Ответ пуст');
             return;
         }
 
+        $time_start = time();
+
+        $this->info('Обновление базы данных...');
+
         foreach ($catalog_items as $catalog_item) {
 
-            if (\App\Models\Merlion\CatalogItem::find($catalog_item->ID)) {
-                continue;
-            }
-
-            \App\Models\Merlion\CatalogItem::create([
+            \App\Models\Merlion\CatalogItem::firstOrCreate([
                 'id' => $catalog_item->ID,
                 'parent_id' => $catalog_item->ID_PARENT,
                 'description' => $catalog_item->Description,
             ]);
+
+            echo '.';
         }
+        echo "\n";
+        $this->info('-прошло секунд ' . ( time() - $time_start ));
+        $this->info('Готово!');
 
     }
 }
