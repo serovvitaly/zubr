@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
 
         //\App\Services\Merlion\MerlionConsole::class,
         \App\Services\Merlion\ConsoleCommands\FillCatalog::class,
+        \App\Services\Merlion\ConsoleCommands\FillProducts::class,
     ];
 
     /**

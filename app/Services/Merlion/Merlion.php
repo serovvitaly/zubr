@@ -34,7 +34,7 @@ class Merlion
         return $this->soap_client;
     }
 
-    protected function call($function_name, array $arguments = [])
+    public function call($function_name, array $arguments = [])
     {
         return $result = $this->getSoapClient()->__soapCall($function_name, array(
             $function_name => $arguments
@@ -132,13 +132,13 @@ class Merlion
      * @param $item_id
      * @return mixed
      */
-    public function getItemsAvail($cat_id, $item_id = '', $shipment_method = '', $shipment_date = '', $only_avail = '')
+    public function getItemsAvail($cat_id, $item_id = '', $shipment_method = '', $shipment_date = '', $only_avail = '0')
     {
         $result = $this->call('getItemsAvail', [
-            'cat_id' => $cat_id,
-            'item_id' => $item_id,
-            'shipment_method' => $shipment_method,
-            'shipment_date' => $shipment_date,
+            //'cat_id' => 'B11000',
+            'item_id' => 824436,
+            'shipment_method' => 'С/В', // $shipment_method,
+            'shipment_date' => '2015-07-27', // $shipment_date,
             'only_avail' => $only_avail,
         ]);
 
