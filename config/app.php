@@ -144,7 +144,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\MerlionServiceProvider::class,
-        Jenssegers\Mongodb\MongodbServiceProvider::class,
 
     ],
 
