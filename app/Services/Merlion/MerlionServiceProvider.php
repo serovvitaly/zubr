@@ -132,7 +132,7 @@ class MerlionServiceProvider
      * @param $item_id
      * @return mixed
      */
-    public function getItemsAvail($cat_id, $shipment_method, $shipment_date, $only_avail, $item_id)
+    public function getItemsAvail($cat_id, $item_id = '', $shipment_method = '', $shipment_date = '', $only_avail = '')
     {
         $result = $this->call('getItemsAvail', [
             'cat_id' => $cat_id,
